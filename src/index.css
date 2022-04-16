@@ -8,11 +8,26 @@
 }
 
 .banner-all-content {
-    background-image: url(https://i.ibb.co/QfPn1sr/young-active-male-traveler-takes-photo-with-retro-camera-dressed-hat-raincoat-as-travels-during-rain.jpg);
+    background-image: url(https://i.ibb.co/TgSvVZG/yellobg.jpg);
     width: 100%;
-    height: 90vh;
-    /* background-position: -78px -20px; */
+    height: 85vh;
+
     background-repeat: no-repeat;
     background-size: cover;
 
+}
+
+.service-dis h3 {
+    position: relative;
+}
+
+.service-dis h3::before {
+    position: absolute;
+    content: "";
+    width: 20%;
+    height: 3px;
+    background-color: #EFD400;
+    left: 0;
+    bottom: -3px;
+    border-radius: 10px;
 }
