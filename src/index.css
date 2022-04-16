@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header-menu ul li {
+    display: inline-block;
+    margin: 0px 13px;
+}
+
+.banner-all-content {
+    background-image: url(https://i.ibb.co/QfPn1sr/young-active-male-traveler-takes-photo-with-retro-camera-dressed-hat-raincoat-as-travels-during-rain.jpg);
+    width: 100%;
+    height: 90vh;
+    /* background-position: -78px -20px; */
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}

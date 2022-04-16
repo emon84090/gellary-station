@@ -3,7 +3,9 @@ import React from 'react';
 const Banner = () => {
     return (
         <>
-            <p>this is banner</p>
+            <div className="banner-all-content">
+
+            </div>
         </>
     );
 };
