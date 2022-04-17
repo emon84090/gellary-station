@@ -6,7 +6,7 @@ const Banner = () => {
             <div className="banner-all-content flex items-center py-16">
                 <div className="container mx-auto h-full px-1 ">
                     <div className="banner-content grid grid-cols-12 place-content-center h-full">
-                        <div className="banner-left col-span-12 md:col-span-5 order-2 mt-4">
+                        <div className="banner-left col-span-12 md:col-span-5 order-2 mt-4" >
                             <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold capitalize '>Hello i am Arif Khan , i am professional photographer</h2>
 
                             <p className='mt-5 text-gray-700 bg-opacity-70 text-md capitalize font-light'>Wedding and Elopement Photographer Capturing The Natural Beauty Of Love In Florida And Wherever Else Your Love Story Takes You. </p>
