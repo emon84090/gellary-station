@@ -1,10 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import useFirebase from './user-auth/useFirebase';
 
 
 const Checkout = () => {
     const { id } = useParams();
 
+    const { user } = useFirebase();
 
     return (
         <>

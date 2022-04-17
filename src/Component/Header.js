@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import useFirebase from './user-auth/useFirebase';
 
 const Header = () => {
     const [menu, setMenu] = useState(false);
+    const { logOut, user } = useFirebase();
+
     return (
         <>
+
             <header className='bg-white w-full py-4 sticky top-0 z-10 px-2'>
                 <div className="container mx-auto">
                     <div className="header-all-content flex-wrap flex justify-between items-center ">
@@ -31,22 +35,30 @@ const Header = () => {
                             </div>
 
                             <div className="header-link md:flex">
-                                <div className="signup-btn mt-3 md:mt-0 flex items-center justify-center">
-                                    <NavLink
-                                        className={({ isActive }) => (`font-semibold  text-md capitalize ${isActive ? "text-yellow-500" : ""}`)}
-                                        to='/registration'
-                                    >
-                                        SignUp
-                                    </NavLink>
-                                </div>
-                                <div className="login-btn ml-3 mt-3 md:mt-0">
-                                    <button className='bg-gray-900 w-20 h-10 text-white rounded-3xl'><NavLink
-                                        className={({ isActive }) => (`font-semibold text-md capitalize ${isActive ? "text-yellow-500" : ""}`)}
-                                        to='/login'
-                                    >
-                                        Login
-                                    </NavLink></button>
-                                </div>
+                                {user.uid ? <>
+                                    <div className="logout-btn ml-1 mt-3 md:mt-0">
+                                        <button onClick={() => logOut()} className='bg-gray-900 w-20 h-10 text-white rounded-3xl font-semibold capitalize'>logout</button>
+                                    </div>
+                                </> : <>
+                                    <div className="signup-btn mt-3 md:mt-0 flex items-center justify-center">
+
+                                        <NavLink
+                                            className={({ isActive }) => (`font-semibold  text-md capitalize ${isActive ? "text-yellow-500" : ""}`)}
+                                            to='/registration'
+                                        >
+                                            SignUp
+                                        </NavLink>
+                                    </div>
+                                    <div className="login-btn ml-3 mt-3 md:mt-0">
+                                        <button className='bg-gray-900 w-20 h-10 text-white rounded-3xl'><NavLink
+                                            className={({ isActive }) => (`font-semibold text-md capitalize ${isActive ? "text-yellow-500" : ""}`)}
+                                            to='/login'
+                                        >
+                                            Login
+                                        </NavLink></button>
+                                    </div>
+                                </>}
+
                             </div>
                         </div>
                     </div>
