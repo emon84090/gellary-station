@@ -1,13 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Showservices = (props) => {
-    const { sub_title, price, dis, image } = props.value;
+    const navigate = useNavigate();
+    const { sub_title, price, dis, image, id } = props.value;
     return (
         <>
             <div className="services-items p-4 shadow-2xl rounded-md">
                 <div className="services-image">
                     <img className='h-72 object-cover' src={image} alt="" />
                 </div>
+
                 <div className="service-dis">
                     <div className="service-inform flex justify-between items-center">
                         <h3 className='text-2xl font-semibold my-3'>{sub_title}</h3>
@@ -18,7 +21,7 @@ const Showservices = (props) => {
                 </div>
 
                 <div className="buy-btn mt-5">
-                    <button className='bg-gray-900 rounded-sm group flex justify-center items-center shadow-sm px-10 h-12 font-semibold capitalize text-white'>phurchase now  <i class='bx bxs-chevron-right group-hover:ml-3 transition-all ml-1 text-xl'></i></button>
+                    <button onClick={() => { navigate(`/checkout/${id}`) }} className='bg-gray-900 rounded-sm group flex justify-center items-center shadow-sm px-10 h-12 font-semibold capitalize text-white'>phurchase now  <i className='bx bxs-chevron-right group-hover:ml-3 transition-all ml-1 text-xl'></i></button>
 
 
 

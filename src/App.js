@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Checkout from './Component/Checkout';
 import Footer from './Component/Footer';
 import Header from './Component/Header';
 import Home from './Component/Home';
@@ -20,6 +21,8 @@ const App = () => {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+
+        <Route path='/checkout/:id' element={<Checkout></Checkout>}></Route>
       </Routes>
       <Footer></Footer>
 

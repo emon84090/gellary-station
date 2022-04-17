@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useServices from '../useServices';
 import Showservices from './Showservices';
 
 const Services = () => {
-    const [data, setData] = useState([])
-    useEffect(() => {
-        fetch('services.json')
-            .then((res) => res.json())
-            .then((val) => setData(val))
-
-    }, [])
+    const { data } = useServices();
     return (
         <>
             <section id='services' className='py-16'>
