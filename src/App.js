@@ -6,6 +6,7 @@ import Checkout from './Component/Checkout';
 import Footer from './Component/Footer';
 import Header from './Component/Header';
 import Home from './Component/Home';
+import Requareauth from './Component/Requareauth';
 import Login from './Component/user-auth/Login';
 import Registration from './Component/user-auth/Registration';
 
@@ -22,7 +23,11 @@ const App = () => {
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
 
-        <Route path='/checkout/:id' element={<Checkout></Checkout>}></Route>
+        <Route path='/checkout/:id' element={
+          <Requareauth>
+            <Checkout></Checkout>
+          </Requareauth>
+        }></Route>
       </Routes>
       <Footer></Footer>
 

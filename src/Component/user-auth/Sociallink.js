@@ -2,16 +2,20 @@ import React, { useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from './firebaseconfig';
 import switalert from './Alert';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Sociallink = () => {
 
+    const navigate = useNavigate()
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const provider = new GoogleAuthProvider();
 
     const siginWithgoogle = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
-
+                navigate(from, { replace: true });
             }).catch((error) => {
 
                 switalert(`${error}`, 'error')

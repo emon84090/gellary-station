@@ -35,7 +35,7 @@ const Header = () => {
                             </div>
 
                             <div className="header-link md:flex">
-                                {user.uid ? <>
+                                {user ? <>
                                     <div className="logout-btn ml-1 mt-3 md:mt-0">
                                         <button onClick={() => logOut()} className='bg-gray-900 w-20 h-10 text-white rounded-3xl font-semibold capitalize'>logout</button>
                                     </div>

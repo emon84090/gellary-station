@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import switalert from './Alert';
 import auth from './firebaseconfig';
 import Sociallink from './Sociallink';
@@ -9,6 +9,10 @@ const Login = () => {
     const [lemail, lsetemail] = useState();
     const [lpassword, lsetpassword] = useState();
     const [spinner, setspinner] = useState(false);
+
+    const navigate = useNavigate()
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const loginemail = (e) => {
         lsetemail(e.target.value)
@@ -25,6 +29,7 @@ const Login = () => {
             .then((res) => {
                 setspinner(false)
                 switalert('login success', 'success');
+                navigate(from, { replace: true });
 
             })
             .catch((err) => {
