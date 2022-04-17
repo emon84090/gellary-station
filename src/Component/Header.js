@@ -17,7 +17,7 @@ const Header = () => {
                         </div>
                         <div className="menu md:hidden mx-3" onClick={() => setMenu(!menu)}>
 
-                            {!menu ? <i className='bx bx-menu text-3xl cursor-pointer'></i> : <i class='bx bx-x text-3xl cursor-pointer'></i>}
+                            {!menu ? <i className='bx bx-menu text-3xl cursor-pointer'></i> : <i className='bx bx-x text-3xl cursor-pointer'></i>}
                         </div>
                         <div className={`header-utilities  md:flex items-center text-center mt-3 md:mt-0 ${!menu ? 'max-h-0 md:max-h-max overflow-hidden' : 'max-h-max'}`}>
                             <div className="header-menu md:mr-5">
@@ -27,6 +27,20 @@ const Header = () => {
                                         to='/home'
                                     >
                                         Home
+                                    </NavLink></li>
+                                    <li><NavLink
+                                        className={({ isActive }) => (`font-semibold text-md capitalize ${isActive ? "text-yellow-500" : ""}`)}
+                                        to='/about'
+                                    >
+                                        About
+                                    </NavLink></li>
+
+
+                                    <li><NavLink
+                                        className={({ isActive }) => (`font-semibold text-md capitalize ${isActive ? "text-yellow-500" : ""}`)}
+                                        to='/blog'
+                                    >
+                                        Blog
                                     </NavLink></li>
 
 
@@ -38,7 +52,7 @@ const Header = () => {
                             <div className="header-link md:flex">
                                 {user ? <>
                                     <div className="logout-btn ml-1 mt-3 md:mt-0">
-                                        <button onClick={() => logOut()} className='bg-gray-900 w-20 h-10 text-white rounded-3xl font-semibold capitalize'>logout</button>
+                                        <button onClick={() => logOut()} className='bg-red-500 w-20 h-10 text-white rounded-full shadow-sm font-semibold capitalize'>logout</button>
                                     </div>
                                 </> : <>
                                     <div className="signup-btn mt-3 md:mt-0 flex items-center justify-center">

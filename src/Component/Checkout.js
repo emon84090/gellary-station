@@ -12,7 +12,7 @@ const Checkout = () => {
 
     return (
         <>
-            <div className="checkout-all-content py-10 flex justify-center bg-yellow-50">
+            <div className="checkout-all-content py-10 flex justify-center bg-yellow-50 px-2">
                 <div className="checkout-details order-2 col-span-12 lg:col-span-8 md:col-span-6 max-w-lg w-full">
                     <h1 className='mb-8 text-3xl font-semibold'>Edit  Details</h1>
 

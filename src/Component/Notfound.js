@@ -9,13 +9,14 @@ const Notfound = () => {
        flex
     items-center
     justify-center
-    w-screen
+    
+    px-2
     h-screen
     bg-gradient-to-r
     from-yellow-100
     to-yellow-100"
             >
-                <div className="px-40 py-20 bg-white rounded-md shadow-xl">
+                <div className=" max-w-lg w-full py-20 bg-white rounded-md shadow-xl">
                     <div className="flex flex-col items-center">
                         <h1 className="font-bold text-yellow-500 text-9xl">404</h1>
 
