@@ -6,6 +6,7 @@ import Checkout from './Component/Checkout';
 import Footer from './Component/Footer';
 import Header from './Component/Header';
 import Home from './Component/Home';
+import Notfound from './Component/Notfound';
 import Requareauth from './Component/Requareauth';
 import Login from './Component/user-auth/Login';
 import Registration from './Component/user-auth/Registration';
@@ -22,7 +23,7 @@ const App = () => {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-
+        <Route path='*' element={<Notfound></Notfound>}></Route>
         <Route path='/checkout/:id' element={
           <Requareauth>
             <Checkout></Checkout>

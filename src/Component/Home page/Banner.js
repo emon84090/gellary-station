@@ -9,7 +9,7 @@ const Banner = () => {
                         <div className="banner-left col-span-12 md:col-span-5 order-2 mt-4">
                             <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold capitalize '>Hello i am Arif Khan , i am professional photographer</h2>
 
-                            <p className='mt-5 text-gray-700 bg-opacity-70 text-md capitalize font-light'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dolore culpa quas, iste, maxime laudantium ex aliquid </p>
+                            <p className='mt-5 text-gray-700 bg-opacity-70 text-md capitalize font-light'>Wedding and Elopement Photographer Capturing The Natural Beauty Of Love In Florida And Wherever Else Your Love Story Takes You. </p>
 
                             <button className='w-40 h-12 bg-gray-900 mt-10 rounded-sm text-white font-semibold shadow-sm'>Contact Me</button>
                         </div>

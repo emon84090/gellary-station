@@ -15,8 +15,9 @@ const Header = () => {
                         <div className="logo">
                             <Link className='text-2xl font-semibold' to="/">Gellary <span className='text-yellow-500'>Station</span></Link>
                         </div>
-                        <div className="menu md:hidden mx-3">
-                            <i onClick={() => setMenu(!menu)} className='bx bx-menu text-2xl cursor-pointer'></i>
+                        <div className="menu md:hidden mx-3" onClick={() => setMenu(!menu)}>
+
+                            {!menu ? <i className='bx bx-menu text-3xl cursor-pointer'></i> : <i class='bx bx-x text-3xl cursor-pointer'></i>}
                         </div>
                         <div className={`header-utilities  md:flex items-center text-center mt-3 md:mt-0 ${!menu ? 'max-h-0 md:max-h-max overflow-hidden' : 'max-h-max'}`}>
                             <div className="header-menu md:mr-5">
@@ -28,7 +29,7 @@ const Header = () => {
                                         Home
                                     </NavLink></li>
 
-                                    <li><a className='font-semibold text-md capitalize' href="home#services">Services</a></li>
+
 
                                 </ul>
 

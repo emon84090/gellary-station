@@ -51,6 +51,7 @@ const Login = () => {
     }
 
     const forgetPass = (e) => {
+
         sendPasswordResetEmail(auth, fpassword)
             .then(() => {
                 switalert(`reset done,we send password veryfication link on your email:${fpassword}`, 'success')
@@ -102,7 +103,7 @@ const Login = () => {
 
                         <input className='p-4 w-full h-11 outline-none rounded-sm placeholder:text-sm bg-slate-300 bg-opacity-30 font-semibold text-gray-600' type="email" name="" placeholder='email address' required onChange={forgetpassword} />
 
-                        <button onClick={forgetPass} className='mb-3 text-white rounded-sm text-sm shadow-sm px-2 mt-1 font-semibold capitalize h-9 bg-yellow-500'> reset now</button>
+                        <button onClick={forgetPass} className='mb-3 text-white rounded-sm text-sm shadow-sm px-2 mt-1 font-semibold capitalize h-9 bg-yellow-500'>reset now</button>
 
 
                     </div>
