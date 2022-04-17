@@ -6,8 +6,8 @@ const Banner = () => {
             <div className="banner-all-content flex items-center">
                 <div className="container mx-auto h-full">
                     <div className="banner-content grid grid-cols-12 place-content-center h-full">
-                        <div className="banner-left col-span-5">
-                            <h2 className='text-4xl font-bold capitalize '>Hello i am jahirul islam , i am professional photographer</h2>
+                        <div className="banner-left col-span-5" data-aos="fade-up">
+                            <h2 className='text-4xl font-bold capitalize '>Hello i am Arif Khan , i am professional photographer</h2>
 
                             <p className='mt-5 text-gray-700 bg-opacity-70 text-md capitalize font-light'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dolore culpa quas, iste, maxime laudantium ex aliquid </p>
 
