@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import switalert from './Alert';
@@ -10,6 +10,10 @@ const Login = () => {
     const [lpassword, lsetpassword] = useState();
     const [spinner, setspinner] = useState(false);
 
+    const [fpassword, fsetpassword] = useState();
+    const [forget, setforget] = useState(false);
+
+
     const navigate = useNavigate()
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -20,6 +24,11 @@ const Login = () => {
     const passwordlogin = (e) => {
         lsetpassword(e.target.value)
     }
+
+    const forgetpassword = (e) => {
+        fsetpassword(e.target.value)
+    }
+
 
     const loginForm = (e) => {
         setspinner(true);
@@ -38,6 +47,19 @@ const Login = () => {
 
             })
 
+
+    }
+
+    const forgetPass = (e) => {
+        sendPasswordResetEmail(auth, fpassword)
+            .then(() => {
+                switalert(`reset done,we send password veryfication link on your email:${fpassword}`, 'success')
+
+            })
+            .catch((error) => {
+
+                switalert(`user does nor exist or something went wrong`, 'error')
+            });
 
     }
 
@@ -64,13 +86,26 @@ const Login = () => {
 
                             <button disabled={spinner} type='submit' className='disabled:bg-opacity-75 disabled:cursor-not-allowed cursor-pointer w-full h-11 outline-none rounded-sm placeholder:text-sm bg-yellow-500   text-white'>{spinner ? <i className='bx bx-loader font-semibold animate-spin text-xl'></i> : 'Sign Up'}</button>
                         </div>
-                        <div className="acount-link mt-2 text-center flex justify-between">
-
-                            <Link to="/registration" className='text-yellow-500 underline font-semibold'>Not acount?</Link>
-                        </div>
 
 
                     </form>
+                    <div className="acount-link mt-2 text-center flex justify-between">
+                        <div className='flex justify-between'>
+
+                            <button onClick={() => setforget(!forget)} className='text-md font-semibold text-gray-700 underline'>Foget password?</button>
+                            <Link className='text-yellow-500 text-md font-semibold capitalize underline ml-6' to="/registration">no acount?</Link>
+                        </div>
+
+                    </div>
+                    <div className={`forget-div mt-2 transition-all ${forget ? 'max-h-14' : 'max-h-0 overflow-hidden'} `}>
+
+
+                        <input className='p-4 w-full h-11 outline-none rounded-sm placeholder:text-sm bg-slate-300 bg-opacity-30 font-semibold text-gray-600' type="email" name="" placeholder='email address' required onChange={forgetpassword} />
+
+                        <button onClick={forgetPass} className='mb-3 text-white rounded-sm text-sm shadow-sm px-2 mt-1 font-semibold capitalize h-9 bg-yellow-500'> reset now</button>
+
+
+                    </div>
                     <Sociallink></Sociallink>
                 </div>
 
