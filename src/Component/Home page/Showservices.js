@@ -18,7 +18,10 @@ const Showservices = (props) => {
                 </div>
 
                 <div className="buy-btn mt-5">
-                    <button className='bg-gray-900 rounded-sm shadow-sm px-10 h-12 font-semibold capitalize text-white'>phurchase now</button>
+                    <button className='bg-gray-900 rounded-sm group flex justify-center items-center shadow-sm px-10 h-12 font-semibold capitalize text-white'>phurchase now  <i class='bx bxs-chevron-right group-hover:ml-3 transition-all ml-1 text-xl'></i></button>
+
+
+
                 </div>
             </div>
         </>
