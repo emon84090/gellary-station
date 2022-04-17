@@ -40,7 +40,7 @@ const Header = () => {
                                     </NavLink>
                                 </div>
                                 <div className="login-btn ml-3 mt-3 md:mt-0">
-                                    <button className='bg-gray-900 w-20 h-10 text-white rounded-md'><NavLink
+                                    <button className='bg-gray-900 w-20 h-10 text-white rounded-3xl'><NavLink
                                         className={({ isActive }) => (`font-semibold text-md capitalize ${isActive ? "text-yellow-500" : ""}`)}
                                         to='/login'
                                     >

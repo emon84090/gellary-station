@@ -1,8 +1,41 @@
-import React from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import switalert from './Alert';
+import auth from './firebaseconfig';
 import Sociallink from './Sociallink';
 
 const Login = () => {
+    const [lemail, lsetemail] = useState();
+    const [lpassword, lsetpassword] = useState();
+    const [spinner, setspinner] = useState(false);
+
+    const loginemail = (e) => {
+        lsetemail(e.target.value)
+    }
+    const passwordlogin = (e) => {
+        lsetpassword(e.target.value)
+    }
+
+    const loginForm = (e) => {
+        setspinner(true);
+        e.preventDefault();
+
+        signInWithEmailAndPassword(auth, lemail, lpassword)
+            .then((res) => {
+                setspinner(false)
+                switalert('login success', 'success');
+
+            })
+            .catch((err) => {
+                setspinner(false)
+                switalert(`${err}`, 'error')
+
+            })
+
+
+    }
+
     return (
         <>
             <div className="login-all-content py-11 h-screen w-full bg-yellow-100 px-3">
@@ -13,17 +46,18 @@ const Login = () => {
                     </div>
 
 
-                    <form action="" className='w-full px-2 mt-10'>
+                    <form onSubmit={loginForm} className='w-full px-2 mt-10'>
 
                         <div className="input-field mb-3">
-                            <input placeholder='Email' className='p-4 w-full h-11 outline-none rounded-sm placeholder:text-sm bg-slate-300 bg-opacity-30 font-semibold text-gray-600' type="email" name="" id="" />
+                            <input onChange={loginemail} placeholder='Email' className='p-4 w-full h-11 outline-none rounded-sm placeholder:text-sm bg-slate-300 bg-opacity-30 font-semibold text-gray-600' type="email" name="" required />
                         </div>
                         <div className="input-field mb-3">
-                            <input placeholder='Password' className='p-4 w-full h-11 outline-none rounded-sm placeholder:text-sm bg-slate-300 bg-opacity-30 font-semibold text-gray-600' type="password" name="" id="" />
+                            <input onChange={passwordlogin} placeholder='Password' className='p-4 w-full h-11 outline-none rounded-sm placeholder:text-sm bg-slate-300 bg-opacity-30 font-semibold text-gray-600' type="password" name="" required />
                         </div>
 
                         <div className="input-field">
-                            <input className=' cursor-pointer w-full h-11 outline-none rounded-sm placeholder:text-sm bg-yellow-500   text-white' type="submit" name="" id="" value="Sign Up" />
+
+                            <button disabled={spinner} type='submit' className='disabled:bg-opacity-75 disabled:cursor-not-allowed cursor-pointer w-full h-11 outline-none rounded-sm placeholder:text-sm bg-yellow-500   text-white'>{spinner ? <i className='bx bx-loader font-semibold animate-spin text-xl'></i> : 'Sign Up'}</button>
                         </div>
                         <div className="acount-link mt-2 text-center flex justify-between">
 
